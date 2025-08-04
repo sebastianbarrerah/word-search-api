@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { WordsearchModule } from './wordsearch/wordsearch.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [WordsearchModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
