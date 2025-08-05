@@ -4,23 +4,24 @@ import { DIRECTIONS_API } from './constants/directions';
 @Injectable()
 export class WordsearchService {
 
-  private found: string[] = [];
-  private notFound: string[] = [];
-
   findWords(word: string[], matrix: string[][]) {
+
+    const found: string[] = [];
+    const notFound: string[] = [];
+
 
     for (const words of word) {
       const isFound = this.searchWordInMatrix(matrix, words);
 
       if (isFound) {
-        this.found.push(words);
+        found.push(words);
       } else {
-        this.notFound.push(words)
+        notFound.push(words)
       }
     }
 
     return {
-      encontrado: this.found, noEncontrado: this.notFound
+      encontrado: found, noEncontrado: notFound
     };
   }
 
